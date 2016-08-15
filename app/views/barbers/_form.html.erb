@@ -1,0 +1,23 @@
+<%= form_for @barber, class: '', id: '' do |f| %>
+  <% if @errors.present? %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name, class: 'text' %>
+  <%= f.label :address, 'Address' %>
+  <%= f.text_field :address, class: 'text' %>
+  <%= f.label :email, 'Email' %>
+  <%= f.text_field :email, class: 'text' %>
+  <%= f.label :city, 'City' %>
+  <%= f.text_field :city, class: 'text' %>
+  <%= f.label :phone_number, 'Phone Number' %>
+  <%= f.number_field :phone_number, class: 'number' %>
+  <%= f.label :rating, 'Photo' %>
+  <%= f.file_field :photo %>
+  <%= f.hidden_field :photo_cache %>
+  <%= f.submit 'Submit' %>
+<% end %>
