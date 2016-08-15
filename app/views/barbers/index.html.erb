@@ -1,0 +1,32 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path 'FMB_coverpage_sw66h9.jpg' %>);">
+  <%#= cl_image_tag("cover_pic_cocktails_djgzcr.jpg", :alt => 'Cocktails Cover') %>
+  <div class="banner-content">
+    <h1>WELCOME TO THE MAN SALON</h1>
+    <p>Get the best hair experience at your local barbershop.</p>
+    <a class="btn btn-primary btn-lg">GET IT</a>
+  </div>
+</div>
+
+<h1 class="text-center" >All Barbers</h1>
+
+<div class="container">
+  <div class="row">
+    <% @barbers.each do |barber|%>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-home">
+          <p class="text-center"><%= image_tag barber.photo.url(:standard) if barber.photo.present? %></p>
+          <h4><%= barber.name %></h4>
+          <p><%= barber.address %></p>
+          <p><%= barber.city %></p>
+          <p><%= barber.email %></p>
+          <p><%= barber.phone_number %></p>
+
+          <button><%= link_to 'Show', barber_path(barber) %></button>
+          <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
+        </div>
+      </div>
+
+      <% end%>
+
+  </div>
+</div>
