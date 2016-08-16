@@ -13,7 +13,7 @@ require 'faker'
     name: Faker::GameOfThrones.character,
     address: Faker::Address.street_address,
     email: Faker::Internet.email,
-    city: Faker::Address.city,
+    city: "Copenhagen",
     phone_number: Faker::Number.number(8)
   )
 end

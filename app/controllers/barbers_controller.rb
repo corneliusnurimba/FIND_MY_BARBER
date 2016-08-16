@@ -2,6 +2,11 @@ class BarbersController < ApplicationController
 
   def index
     @barbers = Barber.all
+    if params[:city]
+      @barbers = Barber.search(params[:city]).order("created_at DESC")
+    else
+      @barbers = Barber.all.order('created_at DESC')
+    end
   end
 
   def show
