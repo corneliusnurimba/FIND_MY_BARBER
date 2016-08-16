@@ -5,6 +5,7 @@ class BarbersController < ApplicationController
   end
 
   def show
+    raise
     @barber = Barber.find(params[:id])
   end
 
