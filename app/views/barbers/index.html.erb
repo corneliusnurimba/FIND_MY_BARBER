@@ -15,24 +15,24 @@
     </div>
 
     <div class="media-section">
-      <% @barbers.each do |barber|%>
-        <p class="text-center"><%= image_tag 'FMB_Barber_3.jpg' %></p>
-        <h4><%= barber.name %></h4>
-        <p><%= barber.address %></p>
-        <p><%= barber.email %></p>
-        <p><%= barber.phone_number %></p>
-
-        <button><%= link_to 'Show', barber_path(barber) %></button>
-        <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
-      <% end %>
+      <div class="container">
+        <% @barbers.each do |barber|%>
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <p class="text-center"><%= image_tag 'FMB_Barber_3.jpg' %></p>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <h4><%= barber.name %></h4>
+            <p><%= barber.address %></p>
+            <p><%= barber.email %></p>
+            <p><%= barber.phone_number %></p>
+            <button><%= link_to 'Show', barber_path(barber) %></button>
+            <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-
-    <div class="media-section">
-      <h2>PLACEHOLDER FOR SOMETHING...</h2>
-      ...
-    </div>
-
-
 
   </div>
 
