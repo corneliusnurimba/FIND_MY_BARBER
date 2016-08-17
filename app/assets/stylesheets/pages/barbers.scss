@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.listing-info-box {
+  margin-top: 100px;
+  background-color: yellow;
+}
+
 
 .media {
   display: flex;
@@ -14,8 +19,8 @@
   width: 100%;
 }
 .media-aside {
-  flex: 0 0 400px;
-  padding: 30px;
+  flex: 0 0 500px;
+  padding: 0px;
   align-self: stretch;
   background: #F8F7F7;
   border-left: 1px solid #f0efef;

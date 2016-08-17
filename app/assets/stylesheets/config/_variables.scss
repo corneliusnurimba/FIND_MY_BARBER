@@ -3,8 +3,9 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+@import url("https://fonts.googleapis.com/css?family=Lobster|Raleway:300,400,500,600");
+$base-font: "Raleway", "Helvetica", "sans-serif";
+$header-font: "Lobster", "Helvetica", "cursive";
 
 // Local fonts (uncomment following lines)
 // @font-face {
