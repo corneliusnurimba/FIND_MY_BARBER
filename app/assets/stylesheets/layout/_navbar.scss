@@ -1,7 +1,8 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #7C9885;
+  // background: white;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -54,9 +55,11 @@
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: #D23333;
-  color: white;
+  // background-color: #D23333;
+  background-color: #F7FF58;
+  color: black;
   font-size: 14px;
+  font-style: bold;
   border: 2px solid #D23333;
 }
 .navbar-wagon-button:hover {
