@@ -1,12 +1,13 @@
 class BarbersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @barbers = Barber.all
   end
 
   def show
-    raise
     @barber = Barber.find(params[:id])
+    @booking = @barber.bookings.build
   end
 
   def new

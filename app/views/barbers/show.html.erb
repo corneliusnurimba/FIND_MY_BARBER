@@ -1,6 +1,4 @@
-
-<%= raise %>
-<h1>Show Barber</h1>
+z<h1>Show Barber</h1>
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path @barber.photo.url(:standard) %>);">
 </div>
@@ -13,11 +11,11 @@
   <h4><%= @barber.email %></h4>
   <h4><%= @barber.phone_number %></h4>
 
-dgghjkkkkk
-  <%= text_field_tag 'whatever', nil, {id: 'datetimepicker'} %>
 
-  <%#= simple_form_for [@barber, @booking] do |f|%>
-    <%#= f.input :date, id: 'datetimepicker' %>
-  <%#end%>
+    <%= simple_form_for [@barber, @booking] do |f|%>
+    <%= f.input :barber_id, collection: Barber.all %>
+    <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' }%>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <%end%>
 
 </div>
