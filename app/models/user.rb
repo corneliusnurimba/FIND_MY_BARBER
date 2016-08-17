@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
 
+
   def full_name
     first_name + ' ' + last_name
   end

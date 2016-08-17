@@ -1,4 +1,5 @@
 class BarbersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @barbers = Barber.all
@@ -18,6 +19,7 @@ class BarbersController < ApplicationController
 
   def show
     @barber = Barber.find(params[:id])
+    @booking = @barber.bookings.build
     @alert_message = "You are viewing #{@barber.name}"
     @barber_coordinates = { lat: @barber.latitude, lng: @barber.longitude }
   end

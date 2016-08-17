@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+before_action :authenticate_user!, except: [:index]
 
 
 
@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+
   end
 
   def new
@@ -22,10 +23,11 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.build(booking_params)
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path(current_user)
     else
+      @barber = @booking.barber
       @errors = @booking.errors.full_messages
-      render :new
+      render template: 'barbers/show'
     end
   end
 
@@ -55,7 +57,7 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :barber_id, :date_time, :cancelled)
+    params.require(:booking).permit(:user_id, :barber_id, :date, :cancelled)
   end
 
 end

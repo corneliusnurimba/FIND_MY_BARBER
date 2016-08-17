@@ -2,9 +2,11 @@
 @import "config/variables";
 @import "config/bootstrap_variables";
 
+
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
