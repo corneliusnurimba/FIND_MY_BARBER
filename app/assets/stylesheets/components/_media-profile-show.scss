@@ -1,22 +1,16 @@
-// Place all the styles related to the barbers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .media {
   display: flex;
 }
 .media-body {
-  flex: 1 1 auto;
+  // flex: 1 1 auto;
   padding: 20px;
 }
 .media-body img {
   width: 100%;
 }
 .media-aside {
-  flex: 0 0 400px;
-  padding: 30px;
-  align-self: stretch;
+  flex: 0 0 50px;
+  padding: 0px;
   background: #F8F7F7;
   border-left: 1px solid #f0efef;
 }

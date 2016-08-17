@@ -1,32 +1,62 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= cl_image_path 'FMB_coverpage_sw66h9.jpg' %>);">
-  <%#= cl_image_tag("cover_pic_cocktails_djgzcr.jpg", :alt => 'Cocktails Cover') %>
-  <div class="banner-content">
-    <h1>WELCOME TO THE MAN SALON</h1>
-    <p>Get the best hair experience at your local barbershop.</p>
-    <a class="btn btn-primary btn-lg">GET IT</a>
+
+<div class="media">
+  <div class="media-body">
+
+    <div class="media-section">
+      <ul class="list-inline">
+        <li>Update City</li>
+        <li>
+        <%= form_tag(barbers_path, method: :get, id: "search-form", class: "form-inline") do %>
+        <%= text_field_tag :city, params[:city], placeholder: "Search Cities", class: "form-control input-lg" %>
+        <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="media-section">
+      <% @barbers.each do |barber|%>
+        <p class="text-center"><%= image_tag 'FMB_Barber_3.jpg' %></p>
+        <h4><%= barber.name %></h4>
+        <p><%= barber.address %></p>
+        <p><%= barber.email %></p>
+        <p><%= barber.phone_number %></p>
+
+        <button><%= link_to 'Show', barber_path(barber) %></button>
+        <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
+      <% end %>
+    </div>
+
+    <div class="media-section">
+      <h2>PLACEHOLDER FOR SOMETHING...</h2>
+      ...
+    </div>
+
+
+
   </div>
+
+  <div class="media-aside" id="map" style="width: 100%; height: 600px;"></div>
+
+
 </div>
 
-<h1 class="text-center" >All Barbers</h1>
 
-<div class="container">
-  <div class="row">
-    <% @barbers.each do |barber|%>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-home">
-          <p class="text-center"><%= image_tag barber.photo.url(:standard) if barber.photo.present? %></p>
-          <h4><%= barber.name %></h4>
-          <p><%= barber.address %></p>
-          <p><%= barber.city %></p>
-          <p><%= barber.email %></p>
-          <p><%= barber.phone_number %></p>
-
-          <button><%= link_to 'Show', barber_path(barber) %></button>
-          <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
-        </div>
-      </div>
-
-      <% end%>
-
-  </div>
-</div>
+<!-- javascript -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
