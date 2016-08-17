@@ -8,6 +8,8 @@
 
 require 'faker'
 
+Barber.destroy_all
+
 Barber.create(
     name: "Westons Barbershop",
     address: "456 William St, Perth WA 6000, Australia",
