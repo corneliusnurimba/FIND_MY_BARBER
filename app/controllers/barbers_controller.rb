@@ -2,15 +2,24 @@ class BarbersController < ApplicationController
 
   def index
     @barbers = Barber.all
+    @barbers = Barber.where.not(latitude: nil, longitude: nil)
     if params[:city]
       @barbers = Barber.search(params[:city]).order("created_at DESC")
     else
       @barbers = Barber.all.order('created_at DESC')
     end
+    @hash = Gmaps4rails.build_markers(@barbers) do |barber, marker|
+      marker.lat barber.latitude
+      marker.lng barber.longitude
+      # marker.infowindow render_to_string(partial: "/barbers/map_box", locals: { barber: barber })
+    end
+
   end
 
   def show
     @barber = Barber.find(params[:id])
+    @alert_message = "You are viewing #{@barber.name}"
+    @barber_coordinates = { lat: @barber.latitude, lng: @barber.longitude }
   end
 
   def new

@@ -1,5 +1,4 @@
 
-
 <div class="media">
   <div class="media-body">
 
@@ -17,10 +16,9 @@
 
     <div class="media-section">
       <% @barbers.each do |barber|%>
-        <p class="text-center"><%= image_tag barber.photo.url(:standard) if barber.photo.present? %></p>
+        <p class="text-center"><%= image_tag 'FMB_Barber_3.jpg' %></p>
         <h4><%= barber.name %></h4>
         <p><%= barber.address %></p>
-        <p><%= barber.city %></p>
         <p><%= barber.email %></p>
         <p><%= barber.phone_number %></p>
 
@@ -34,20 +32,31 @@
       ...
     </div>
 
-  </div>
 
-  <div class="media-aside">
-
-    <div class="media-section">
-      <h2>Share</h2>
-      ...
-    </div>
-
-    <div class="media-section">
-      <h2>382 upvotes</h2>
-      ...
-    </div>
 
   </div>
+
+  <div class="media-aside" id="map" style="width: 100%; height: 600px;"></div>
+
 
 </div>
+
+
+<!-- javascript -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>

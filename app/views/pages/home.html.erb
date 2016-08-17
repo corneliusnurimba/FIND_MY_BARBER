@@ -19,7 +19,7 @@
       <% @barbers.first(3).each do |barber|%>
         <div class="col-xs-12 col-sm-4">
           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'FMB_Barber_2.jpg' %>);">
-            <div class="card-category"><%= barber.city %></div>
+            <div class="card-category"></div>
             <div class="card-description">
               <h2><%= barber.name %></h2>
               <p><%= barber.address %></p>

@@ -7,7 +7,16 @@
 <div>
   <h4><%= @barber.name %></h4>
   <h4><%= @barber.address %></h4>
-  <h4><%= @barber.city %></h4>
   <h4><%= @barber.email %></h4>
   <h4><%= @barber.phone_number %></h4>
 </div>
+
+<!-- javascript -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @barber_coordinates %>;
+      alert('Barber coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>

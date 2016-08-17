@@ -8,12 +8,34 @@
 
 require 'faker'
 
-10.times do
-  Barber.create(
-    name: Faker::GameOfThrones.character,
-    address: Faker::Address.street_address,
-    email: Faker::Internet.email,
-    city: "Copenhagen",
-    phone_number: Faker::Number.number(8)
+Barber.create(
+    name: "Westons Barbershop",
+    address: "456 William St, Perth WA 6000, Australia",
+    email: "weston@gmail.com",
+    phone_number: 92282692,
+    photo: "http://res.cloudinary.com/dijoetjkr/image/upload/v1471340569/FMP_Barber_1_fopq1h.jpg"
   )
-end
+
+Barber.create(
+    name: "Uncle Joe's Barber",
+    address: "74-76 King St, Perth WA 6000, Australia",
+    email: "unclejoe@gmail.com",
+    phone_number: 92278692,
+    photo: "http://res.cloudinary.com/dijoetjkr/image/upload/v1471340570/FMB_Barber_2_qdalqo.jpg"
+  )
+
+Barber.create(
+    name: "Guys Grooming",
+    address: "844/848 Hay St, Perth WA 6000, Australia",
+    email: "guysgrooming@gmail.com",
+    phone_number: 92263022,
+    photo: "http://res.cloudinary.com/dijoetjkr/image/upload/v1471340570/FMB_Barber_3_iielza.jpg"
+  )
+
+Barber.create(
+    name: "Carl's Barbershop",
+    address: "Rosenvængets Allé 3, 2100 København Ø",
+    email: "carls.barbershop@gmail.com",
+    phone_number: 26782222,
+    photo: "http://res.cloudinary.com/dijoetjkr/image/upload/v1471273078/FMB_coverpage_sw66h9.jpg"
+  )

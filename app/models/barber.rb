@@ -5,6 +5,6 @@ class Barber < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def self.search(search)
-    where("LOWER(city) LIKE LOWER(?)", search)
+    near(search, 20)
   end
 end
