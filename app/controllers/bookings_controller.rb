@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
-before_action :authenticate_user!, except: [:index]
-
+# before_action :authenticate_user!
 
 
   def index
@@ -25,7 +24,7 @@ before_action :authenticate_user!, except: [:index]
     if @booking.save
       redirect_to profile_path(current_user)
     else
-      @barber = @booking.barber
+      # @barber = @booking.barber
       @errors = @booking.errors.full_messages
       render template: 'barbers/show'
     end

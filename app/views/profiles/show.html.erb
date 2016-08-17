@@ -35,7 +35,7 @@
           <h4><%= "You have no bookings" if @user.bookings.empty? %></h4>
           <ul>
           <% @user.bookings.each do |booking| %>
-            <li><%= booking.date_time %></li>
+            <li><%= booking.date %></li>
             <li><%= booking.barber.name %></li>
           <% end %>
           </ul>

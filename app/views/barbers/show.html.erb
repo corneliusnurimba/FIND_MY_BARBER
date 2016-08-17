@@ -12,7 +12,7 @@ z<h1>Show Barber</h1>
 
 
     <%= simple_form_for [@barber, @booking] do |f|%>
-      <%= f.input :barber_id, collection: Barber.all %>
+      <%= f.input :barber_id, as: :hidden, value: @barber.id %>
       <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' }%>
       <%= f.button :submit, class: "btn btn-primary" %>
   <%end%>
