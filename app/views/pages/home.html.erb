@@ -14,7 +14,7 @@
 
 <div class="wrapper-grey padded">
   <div class="container">
-    <h2 class="text-center" >Discover Barbers in your city</h2>
+    <h2 class="text-center header" >Discover Barbers in your city</h2>
     <div class="row">
       <% @barbers.first(3).each do |barber|%>
         <div class="col-xs-12 col-sm-4">
@@ -24,7 +24,7 @@
             <% end %>
             <div class="card-category"></div>
             <div class="card-description">
-              <h2><%= barber.name %></h2>
+              <h2 class=><%= barber.name %></h2>
               <p><%= barber.address %></p>
               <p><%= barber.email %></p>
             </div>
@@ -34,6 +34,8 @@
     </div>
   </div>
 </div>
+
+
 
 <h2 class="text-center" >Explore, Enjoy, Relax</h2>
 
@@ -98,8 +100,10 @@
   </div>
 </div>
 
-<div class="text-center" id="newsletter">
-  <h2>Get news from us</h2>
+
+<div class="text-center padded" id="newsletter">
+  <h2 class="header">Get news from us</h2>
+
   <p>Leave us your mail and get news from us</p>
   <form class="form-inline">
     <input type="email" placeholder="bob@gmail.com" class="form-control">
