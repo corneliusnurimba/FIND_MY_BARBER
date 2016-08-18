@@ -44,6 +44,7 @@
   height: 400px;
   background-size: cover !important;
   color: white;
+  padding-top: 10px;
   position: relative;
   margin-bottom: 30px;
 }
@@ -59,6 +60,7 @@
   height: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
+  padding-top: 10px;
   color: white;
   position: relative;
 }
@@ -96,6 +98,10 @@
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+.width {
+  width: 100%;
 }
 
 .banner p.call-to-action {
