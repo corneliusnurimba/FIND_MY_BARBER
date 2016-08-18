@@ -14,14 +14,14 @@
 
 <div class="wrapper-grey padded">
   <div class="container">
-    <h2 class="text-center" >Discover Barbers in your city</h2>
+    <h2 class="text-center header" >Discover Barbers in your city</h2>
     <div class="row">
       <% @barbers.first(3).each do |barber|%>
         <div class="col-xs-12 col-sm-4">
           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'FMB_Barber_2.jpg' %>);">
             <div class="card-category"></div>
             <div class="card-description">
-              <h2><%= barber.name %></h2>
+              <h2 class=><%= barber.name %></h2>
               <p><%= barber.address %></p>
               <p><%= barber.email %></p>
             </div>
@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<h2 class="text-center" >Ensure the best service</h2>
+<h2 class="text-center header" >Ensure the best service</h2>
 
 <div class="container text-center padded features">
   <div class="row">
@@ -67,7 +67,7 @@
 </div>
 
 <div class="text-center padded" id="newsletter">
-  <h2>Get news from us</h2>
+  <h2 class="header">Get news from us</h2>
   <p>Leave us your mail and get news from us</p>
   <form class="form-inline">
     <input type="email" placeholder="bob@gmail.com" class="form-control">
