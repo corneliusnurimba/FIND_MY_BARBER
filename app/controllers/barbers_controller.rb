@@ -14,7 +14,6 @@ class BarbersController < ApplicationController
       marker.lng barber.longitude
       # marker.infowindow render_to_string(partial: "/barbers/map_box", locals: { barber: barber })
     end
-
   end
 
   def show

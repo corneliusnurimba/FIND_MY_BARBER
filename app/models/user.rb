@@ -5,11 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
 
+  after_create :send_welcome_email
 
   def full_name
     first_name + ' ' + last_name
   end
 
   mount_uploader :photo, PhotoUploader
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
 end
