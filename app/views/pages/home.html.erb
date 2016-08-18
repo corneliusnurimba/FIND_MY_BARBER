@@ -1,8 +1,8 @@
-<div class="banner" style="background-image: url(<%= image_path 'FMB_cover_brownish.jpg' %>);">
+<div class="banner" style="background-image: url(<%= image_path 'retro1.jpg' %>);">
   <%#= cl_image_tag("cover_pic_cocktails_djgzcr.jpg", :alt => 'Cocktails Cover') %>
   <div class="banner-content">
     <h1>Find My Barber</h1>
-    <p>Manliness is a only a good haircut away.</p>
+    <p class="call-to-action">Manliness is a only a good haircut away.</p>
 
     <%= form_tag(barbers_path, method: :get, id: "search-form", class: "form-inline") do %>
     <%= text_field_tag :city, params[:city], placeholder: "Search Cities", class: "form-control input-lg" %>

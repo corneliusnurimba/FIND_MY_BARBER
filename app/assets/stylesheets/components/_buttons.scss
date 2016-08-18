@@ -1,7 +1,8 @@
 .button {
   color: white;
-  background: #996633;
+  background: #E61d28;
   width: 100%;
+  border-radius: 20%;
   padding: 10px 15px;
   opacity: 1;
   margin: 2em 0 3em 0;
@@ -11,5 +12,6 @@
 .button:hover {
   opacity: 1.5;
   color: white;
-  background: #996633;
+  background: #E61d28;
+  border-radius: 50%;
 }
