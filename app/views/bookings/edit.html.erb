@@ -1,0 +1,19 @@
+
+<div class="text-center margin">
+  <h1>Edit you booking</h1>
+  <p>Here you can edit your booking!</p>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+        <%= simple_form_for [@barber, @booking] do |f|%>
+        <%= f.input :barber_id, as: :hidden, value: @barber.id %>
+        <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' }%>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <%end%>
+
+    </div>
+    </div>
+  </div>
+</div>

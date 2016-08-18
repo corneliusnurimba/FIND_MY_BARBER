@@ -1,24 +1,27 @@
-<%= form_for @barber, class: '', id: '' do |f| %>
-  <% if @errors.present? %>
-    <ul>
-      <% @errors.each do |error| %>
-        <li><%= error %></li>
+
+<div class="container">
+  <div class="row">
+   <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for @barber do |f| %>
+      <%= f.error_notification %>
+       <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+        <%= f.input :photo %>
+        </div>
+        <div class="form-actions button-margin">
+        <%= f.button :submit %>
+      </div>
       <% end %>
-    </ul>
-  <% end %>
-  <%= f.label :name, 'Name' %>
-  <%= f.text_field :name, class: 'text' %>
-  <%= f.label :address, 'Address' %>
-  <%= f.text_field :address, class: 'text' %>
-  <%= f.label :email, 'Email' %>
-  <%= f.text_field :email, class: 'text' %>
-  <%= f.label :city, 'City' %>
-  <%= f.text_field :city, class: 'text' %>
-  <%= f.label :phone_number, 'Phone Number' %>
-  <%= f.number_field :phone_number, class: 'number' %>
-  <%= f.label :rating, 'Photo' %>
-  <%= f.file_field :photo %>
-  <%= f.hidden_field :photo_cache %>
-  <%= f.submit 'Submit' %>
-<% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
