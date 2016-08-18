@@ -1,16 +1,21 @@
 .card-block {
-  background: #E6E6E6;
-  border-bottom: 2px solid black;
+  background: #EAEAEA;
   padding: 20px;
 }
 
 .card-profile-show {
-  width: 300px;
+  width: 350px;
   margin: 50px;
 }
 
 .detail-name {
-  font-weight: bold;
+  font-weight: bold #A5A5A5;
   margin-right: 20px;
+}
+
+.img_show {
+  width: 350px;
+  margin-left: 20px;
+  margin-top: 50px;
 }
 

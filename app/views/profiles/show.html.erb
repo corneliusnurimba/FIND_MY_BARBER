@@ -8,8 +8,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6-offset-2 col-md-4">
+
+    <div class='img_show card-block'>
         <h1>Welcome <%= @user.first_name%></h1>
-        <%= image_tag @user.photo.url(:standard) if @user.photo.present?%>
+        <%= image_tag @user.photo.url(:standard), class: 'img-responsive' if @user.photo.present? %>
+      </div>
       </div>
     <div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
       <div class="card-profile-show">
@@ -19,27 +22,31 @@
               <p><span class="detail-name">Email:</span> <%= @user.email %></p>
                 <p><span class="detail-name">Phone:</span><%= @user.phone_number if @user.phone_number.present? %></p>
           </div>
-        <%= link_to "Edit profile", edit_user_registration_path %>
+          <br>
+        <%= link_to "Edit profile", edit_user_registration_path, class: 'link_card link_card:hover' %>
       </div>
 
       <div class="card-profile-show">
         <div class="card-block">
-
           <h4><%= "You have no bookings" if @user.bookings.empty? %></h4>
-          <h4 class="card-title">Your bookings</h4>
+          <h4 class="card-title"><%= "Your bookings" if @user.bookings.present? %></h4>
             <br>
-
           <% @user.bookings.each do |booking| %>
-            <p><span class="detail-name">Time:</span><%= booking.date %></p>
             <p><span class="detail-name">Barber:</span><%= booking.barber.name %></p>
+            <p><span class="detail-name">Time:</span><%= booking.date %></p>
+            <%= link_to "Edit booking", edit_barber_booking_path(booking.barber, booking), class: 'link link_card'%>
+            <%= link_to 'Delete booking', barber_booking_path(booking.barber, booking), class: 'link link_card', method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
 
         </div>
-        <%= link_to "Find a barber and make a booking", root_path %>
+        <br>
+        <%= link_to "Find a barber and make a booking", root_path, class: 'link_card link_card:hover'%>
       </div>
-
       </div>
     </div>
+  <div>
+    <%= link_to "Create a barber shop here!", new_barber_path, class: "btn btn-primary link_barber"%>
+  </div>
   </div>
 </div>
 

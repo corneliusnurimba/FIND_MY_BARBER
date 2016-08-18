@@ -1,3 +1,4 @@
+
 class BookingsController < ApplicationController
 # before_action :authenticate_user!
 
@@ -33,13 +34,14 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @barber = Barber.find(params[:barber_id])
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to profile_path(current_user)
     else
       @errors = @booking.errors.full_messages
       render :edit
@@ -50,7 +52,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-      redirect_to user_path(current_user)
+      redirect_to profile_path(current_user)
   end
 
 
