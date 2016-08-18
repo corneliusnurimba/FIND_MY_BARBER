@@ -9,19 +9,28 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div id="wrapper">
+      <div id="header">
+        <%= render 'shared/navbar' %>
+      </div>
+      <div id="content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= render 'shared/flashes' %>
+        <%= yield %>
 
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+        <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+        <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+        <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
-    <%= javascript_include_tag 'application' %>
-    <%= yield(:after_js) %>
-    <%= render 'shared/footer' %>
+        <%= javascript_include_tag 'application' %>
+        <%= yield(:after_js) %>
+      </div>
+      <div class="push"></div>
+      <div id="footer">
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,6 +1,17 @@
 // Your footer style
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.push {
+    height: 100px; /* .push must be the same height as .footer */
+}
 
 .footer {
+  height: 100px;
   font-size: 20px;
   color: black;
   padding: 30px;

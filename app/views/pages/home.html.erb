@@ -16,7 +16,7 @@
   <div class="container">
     <h2 class="text-center header" >Discover Barbers in your city</h2>
     <div class="row">
-      <% @barbers.first(3).each do |barber|%>
+      <% @barbers.sample(3).each do |barber|%>
         <div class="col-xs-12 col-sm-4">
           <div class="card">
             <%= link_to barber_path(barber) do %>
@@ -63,7 +63,7 @@
     <div class="card-images col-xs-12 col-sm-6 col-md-4">
       <%= image_tag 'retro.jpg', class: 'card-images img-responsive' %>
       <div class="card-description-images">
-        <h2>Tokyo</h2>
+        <h2>Rio de Janeiro</h2>
       </div>
     </div>
     <div class="card-images col-xs-12 col-sm-6 col-md-4">
@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="card-images-2 col-xs-12 col-sm-6 col-md-8">
-      <%= image_tag 'FMB_cover_brownish.jpg', class: 'card-images-2 img-responsive' %>
+      <%= image_tag 'FMB_placeholder.jpg', class: 'card-images-2 img-responsive' %>
       <div class="card-description-images-2">
         <h2>Haircut</h2>
         <p>The earth is your new home.</p>

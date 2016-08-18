@@ -1,11 +1,12 @@
 
-
-<div class="barber-show-banner" style="background-image: url(<%= image_path 'retro1.jpg' %>);">
-</div>
-
-<strong></strong>
-
 <div class="container">
+  <div class="barber-show-banner">
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-4">
+        <%= image_tag @barber.photo_url, class: 'img-responsive'%>
+      </div>
+    </div>
+  </div>
   <h1><%= @barber.name %></h1>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
