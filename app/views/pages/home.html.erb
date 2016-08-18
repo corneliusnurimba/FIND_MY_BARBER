@@ -14,60 +14,96 @@
 
 <div class="wrapper-grey padded">
   <div class="container">
-    <h2 class="text-center" >Discover Barbers in your city</h2>
+    <h2 class="text-center header" >Discover Barbers in your city</h2>
     <div class="row">
       <% @barbers.first(3).each do |barber|%>
         <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'FMB_Barber_2.jpg' %>);">
+          <div class="card">
+            <%= link_to barber_path(barber) do %>
+              <%= image_tag 'FMB_Barber_2.jpg', class: 'card img-responsive' %>
+            <% end %>
             <div class="card-category"></div>
             <div class="card-description">
-              <h2><%= barber.name %></h2>
+              <h2 class=><%= barber.name %></h2>
               <p><%= barber.address %></p>
               <p><%= barber.email %></p>
             </div>
-            <%= link_to barber_path(barber) do %>
-              <%= image_tag 'FMB_profile_cornelius.jpg', class: 'card-user avatar avatar-large' %>
-            <% end %>
-            <%#= image_tag 'FMB_profile_cornelius.jpg', link_to barber_path(barber), class: 'card-user avatar avatar-large' %>
           </div>
         </div>
       <% end %>
     </div>
-    <form action="#" class="form-inline text-center padded">
-      <input type="submit" class="btn btn-primary btn-lg" value="See All Barbers">
-    </form>
   </div>
 </div>
 
-<h2 class="text-center" >Ensure the best service</h2>
 
-<div class="container text-center padded features">
+
+<h2 class="text-center" >Explore, Enjoy, Relax</h2>
+
+<div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'FMB_scissors_icon.jpg' %>
-      <h2>Haircut</h2>
-      <p>The earth is your new home.</p>
+    <div class="card-images-2 col-xs-12 col-sm-6 col-md-8">
+      <%= image_tag 'FMB_cover_brownish.jpg', class: 'card-images-2 img-responsive' %>
+      <div class="card-description-images-2">
+        <h2>Haircut</h2>
+        <p>The earth is your new home.</p>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'FMB_moustache_icon.jpg' %>
-      <h2>Grooming</h2>
-      <p>No cash issues anymore.</p>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'FMB_coffee_icon.jpg' %>
-      <h2>Stay for a Drink</h2>
-      <p>Discover new culture and lifestyle.</p>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= image_tag 'FMB_friends_icon.jpg' %>
-      <h2>Tell your mates</h2>
-      <p>Join a community you will love.</p>
+    <div class="card-images-2 col-xs-12 col-sm-3 col-md-4">
+      <%= image_tag 'FMB_Barber_3.jpg', class: 'card-images-2 img-responsive' %>
+      <div class="card-description-images-2">
+        <h2>Grooming</h2>
+        <p>The earth is your new home.</p>
+      </div>
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="card-images col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag 'retro.jpg', class: 'card-images img-responsive' %>
+      <div class="card-description-images">
+        <h2>Tokyo</h2>
+      </div>
+    </div>
+    <div class="card-images col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag 'max.jpg', class: 'card-images img-responsive' %>
+      <div class="card-description-images">
+        <h2>Perth</h2>
+      </div>
+    </div>
+    <div class="card-images col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag 'jackd.jpg', class: 'card-images img-responsive' %>
+      <div class="card-description-images">
+        <h2>Copenhagen</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card-images-2 col-xs-12 col-sm-3 col-md-4">
+      <%= image_tag 'FMB_Barber_3.jpg', class: 'card-images-2 img-responsive' %>
+      <div class="card-description-images-2">
+        <h2>Grooming</h2>
+        <p>The earth is your new home.</p>
+      </div>
+    </div>
+    <div class="card-images-2 col-xs-12 col-sm-6 col-md-8">
+      <%= image_tag 'FMB_cover_brownish.jpg', class: 'card-images-2 img-responsive' %>
+      <div class="card-description-images-2">
+        <h2>Haircut</h2>
+        <p>The earth is your new home.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="text-center padded" id="newsletter">
-  <h2>Get news from us</h2>
+  <h2 class="header">Get news from us</h2>
+
   <p>Leave us your mail and get news from us</p>
   <form class="form-inline">
     <input type="email" placeholder="bob@gmail.com" class="form-control">

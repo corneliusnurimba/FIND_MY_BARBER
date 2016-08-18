@@ -25,6 +25,36 @@
   margin-bottom: 20px;
 }
 
+.card-images {
+  height: 300px;
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.card-description-images {
+  position: absolute;
+  bottom: 150px;
+  left: 40%;
+  text-align: center;
+}
+
+.card-images-2 {
+  height: 400px;
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.card-description-images-2 {
+  position: absolute;
+  bottom: 150px;
+  left: 40%;
+  text-align: center;
+}
+
 .card {
   height: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -72,5 +102,10 @@
   font-weight: 700;
   font-size: 30px;
   color: #FFFFFF;
-
 }
+
+.header  {
+ color: #0c5897;
+}
+
+
