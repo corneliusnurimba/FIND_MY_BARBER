@@ -1,28 +1,26 @@
 
-<div class="media">
-  <div class="media-body">
+<div class="wrapper-grey">
+  <div class="row">
 
-    <div class="media-section">
-      <ul class="list-inline">
-        <li>Update City</li>
-        <li>
-        <%= form_tag(barbers_path, method: :get, id: "search-form", class: "form-inline") do %>
-        <%= text_field_tag :city, params[:city], placeholder: "Search Cities", class: "form-control input-lg" %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
-        <% end %>
-        </li>
-      </ul>
-    </div>
-
-    <div class="media-section">
-      <div class="container">
-        <% @barbers.each do |barber|%>
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <p class="text-center"><%= image_tag 'FMB_Barber_3.jpg' %></p>
-          </div>
-          <div class="col-xs-12 col-sm-9">
-            <h4><%= barber.name %></h4>
+    <div class="col-xs-12 col-sm-8">
+    <div class="barbers-search-form">
+      <h2>Check them out</h2>
+        <ul class="list-inline">
+          <li>Update City</li>
+          <li>
+          <%= form_tag(barbers_path, method: :get, id: "search-form", class: "form-inline") do %>
+          <%= text_field_tag :city, params[:city], placeholder: "Search Cities", class: "form-control input-lg" %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="barbers-container-cards">
+      <% @barbers.each do |barber|%>
+        <div class="col-xs-12 col-sm-6">
+          <div class="barber-card">
+            <%= image_tag 'FMB_Barber_3.jpg', class: 'img-responsive' %>
+            <h5><%= barber.name %></h5>
             <p><%= barber.address %></p>
             <p><%= barber.email %></p>
             <p><%= barber.phone_number %></p>
@@ -30,16 +28,17 @@
             <button><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
           </div>
         </div>
-        <% end %>
+      <% end %>
       </div>
     </div>
 
+    <div class="map-position">
+      <div id="map" ></div>
+    </div>
   </div>
-
-  <div class="media-aside" id="map" style="width: 100%; height: 600px;"></div>
-
-
 </div>
+
+
 
 
 <!-- javascript -->
