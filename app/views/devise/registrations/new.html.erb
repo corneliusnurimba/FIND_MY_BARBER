@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
-      <h2>Sign up</h2>
+      <h2 class="text-center margin">Sign up</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -22,8 +22,7 @@
           <%= f.button :submit, "Sign up", class: 'button button:hover' %>
         </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
