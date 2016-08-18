@@ -10,4 +10,9 @@ class Barber < ApplicationRecord
     near(search, 20)
   end
 
+  def photo_url
+    return photo.url(:standard) if photo.present?
+    'FMB_placeholder'
+  end
+
 end

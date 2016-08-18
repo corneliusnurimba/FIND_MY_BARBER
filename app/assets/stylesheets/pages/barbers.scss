@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.listing-info-box {
-  margin-top: 100px;
-  background-color: yellow;
-}
-
 .barbers-search-form {
   margin-left: 10px;
   margin-top: 30px;
@@ -19,7 +14,8 @@
 }
 
 .barber-card {
-  background-color: #BAD6EA;
+  // background-color: #BAD6EA;
+  background: #F2F2E1;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -42,12 +38,7 @@
 }
 
 .barber-show-banner {
-  color: white;
-  text-align: center;
-  height: 350px;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #F2F2E1;
+  padding: 20px;
+  margin-top: 50px;
 }
