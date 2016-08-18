@@ -3,28 +3,16 @@
 .footer {
   font-size: 20px;
   color: black;
-  padding: 100px;
+  padding: 30px;
   left: 0px;
   bottom: 0px;
   z-index: 1;
   width: 100%;
-  height: 3px;
   position: relative;
-}
-
-// .footer {
-//     position: absolute;
-//     bottom: 0;
-//     width: 100%;
-//     height: 200px;
-//     background-color: #f5f5f5;
-// }
-
-#footer-img {
-  background-image: url("oldwood-3.jpg");
+  background-image: url("oldwood.jpg");
   opacity: 0.7;
-  height: 10px;
 }
+
 
 .icons-footer {
   color: black;
@@ -33,14 +21,13 @@
 }
 
 .scissor {
-  height: 200px;
+  height: 100px;
   opacity: 0.7;
   position: absolute;
 }
 
 #scissor-div {
   z-index: 2;
-  padding-bottom: 100px;
-  padding-left: 850px;
-  // float: right;
+  padding-bottom: 50px;
+  padding-left: 1100px;
 }

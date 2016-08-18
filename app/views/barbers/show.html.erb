@@ -1,22 +1,37 @@
-<h1>Show Barber</h1>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%#= image_path @barber.photo.url(:standard) %>);">
+
+<div class="barber-show-banner" style="background-image: url(<%= image_path 'retro1.jpg' %>);">
 </div>
 
+<strong></strong>
 
-<div>
-  <h4><%= @barber.name %></h4>
-  <h4><%= @barber.address %></h4>
-  <h4><%= @barber.email %></h4>
-  <h4><%= @barber.phone_number %></h4>
+<div class="container">
+  <h1><%= @barber.name %></h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="">
+        <h3>Details:</h3>
+        <p><strong>Address: </strong><%= @barber.address %></p>
+        <p><strong>Email: </strong><%= @barber.email %></p>
+        <p><strong>Phone: </strong><%= @barber.phone_number %></p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="">
+        <h3>Make a Booking</h3>
 
 
-  <%= simple_form_for [@barber, @booking] do |f|%>
-    <%= f.input :barber_id, as: :hidden, value: @barber.id %>
-    <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' }%>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <%end%>
+          <%= simple_form_for [@barber, @booking] do |f|%>
+          <ul class="list-inline">
+            <%= f.input :barber_id, as: :hidden, value: @barber.id %>
+            <li> <%= f.input :date, as: :string, input_html: { class: 'datetimepicker' }%></li>
+            <li><%= f.button :submit, class: "btn btn-primary" %></li>
+            </ul>
+          <%end%>
 
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- javascript -->
