@@ -31,7 +31,7 @@
             <br>
           <% @user.bookings.each do |booking| %>
             <p><span class="detail-name">Barber:</span><%= booking.barber.name %></p>
-            <p><span class="detail-name">Time:</span><%= booking.date %></p>
+            <p><span class="detail-name">Time:</span><%= booking.date.strftime('%d %B %Y at %H:%M') %></p>
             <%= link_to "Edit booking", edit_barber_booking_path(booking.barber, booking), class: 'link link_card'%>
             <%= link_to 'Delete booking', barber_booking_path(booking.barber, booking), class: 'link link_card', method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
