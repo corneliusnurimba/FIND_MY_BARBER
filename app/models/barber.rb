@@ -7,7 +7,7 @@ class Barber < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def self.search(search)
-    near(search, 20)
+    near(search, 100)
   end
 
   def photo_url
