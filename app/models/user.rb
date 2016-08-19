@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   def photo_url
     return photo.url(:thumbnail) if photo.present?
-    'FMB_profile_placeholder'
+    'FMB_profile_placeholder.jpg'
   end
 
   private
