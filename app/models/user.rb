@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   def full_name
     first_name + ' ' + last_name
@@ -13,10 +13,15 @@ class User < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  def photo_url
+    return photo.url(:thumbnail) if photo.present?
+    'FMB_profile_placeholder'
+  end
+
   private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
 
 end
