@@ -19,13 +19,13 @@
       <% @barbers.each do |barber|%>
         <div class="col-xs-12 col-sm-6">
           <div class="barber-card">
-            <%= image_tag barber.photo_url, class: 'img-responsive'%>
+            <%= cl_image_tag barber.photo_url, class: 'img-responsive'%>
             <h5><%= barber.name %></h5>
             <p><%= barber.address %></p>
             <p><%= barber.email %></p>
             <p><%= barber.phone_number %></p>
-            <button class="btn btn-primary" ><%= link_to 'Show', barber_path(barber) %></button>
-            <button class="btn btn-primary" ><%= link_to 'Delete', barber_path(barber), method: :delete, data: {confirm: "Are you sure?"} %></button>
+            <%= link_to 'Show', barber_path(barber), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', barber_path(barber), class: 'btn btn-primary', method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
         </div>
       <% end %>
@@ -44,11 +44,19 @@
 <!-- javascript -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+    function addMarker(feature, map) {
+      var marker = new google.maps.Marker({
+        position: feature.position,
+        icon: '',
+        map: map
+      });
+    }
     var styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#8e8065"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#443b32"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#565048"},{"lightness":"-22"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"lightness":"45"},{"color":"#2e2925"},{"saturation":"0"}]},{"featureType":"landscape","elementType":"labels.icon","stylers":[{"saturation":"-100"},{"lightness":"-54"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"on"},{"lightness":"0"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#2e2925"},{"lightness":"5"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"saturation":"-89"},{"lightness":"-55"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#8f7a5b"},{"lightness":"0"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#8f7a5b"},{"lightness":"0"},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#8f7a5b"},{"lightness":"0"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#565048"},{"lightness":"0"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#443b32"},{"lightness":"12"}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"visibility":"on"},{"saturation":"-100"},{"lightness":"-51"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#443b32"},{"lightness":"15"}]}];
     $(document).on('ready', function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {
-      styles: styles },
+      handler.buildMap({
+        provider: {
+        styles: styles },
         internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);

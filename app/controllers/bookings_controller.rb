@@ -23,10 +23,10 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.build(booking_params)
     if @booking.save
-      BookingMailer.booking_creation(@booking, current_user).deliver_now
+      BookingMailer.booking_creation(@booking, current_user)#.deliver_now
       redirect_to profile_path(current_user)
     else
-      # @barber = @booking.barber
+      @barber = @booking.barber
       @errors = @booking.errors.full_messages
       render template: 'barbers/show'
     end

@@ -8,11 +8,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   process convert: 'jpg'
 
   version :standard do
-    resize_to_fit 400, 300
+    resize_to_fill 600, 400
   end
 
   version :thumbnail do
-    resize_to_fit 300, 360
+    resize_to_fill 500, 500
   end
 
   version :bright_face do
