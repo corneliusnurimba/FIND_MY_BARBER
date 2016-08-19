@@ -12,7 +12,7 @@ class Barber < ApplicationRecord
 
   def photo_url
     return photo.url(:standard) if photo.present?
-    'FMB_placeholder'
+    'FMB_placeholder.jpg'
   end
 
 end
