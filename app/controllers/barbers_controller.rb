@@ -38,9 +38,18 @@ class BarbersController < ApplicationController
   end
 
   def edit
+    @barber = Barber.find(params[:id])
   end
 
   def update
+    @barber = Barber.find(params[:id])
+    @barber.update(barber_params)
+    if @barber.save
+      redirect_to barber_path(@barber)
+    else
+      @errors = @barber.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy

@@ -16,6 +16,9 @@
         <p><strong>Email: </strong><%= @barber.email %></p>
         <p><strong>Phone: </strong><%= @barber.phone_number %></p>
       </div>
+      <div>
+        <%= link_to "Edit details", edit_barber_path, class: 'link_card link_card:hover' %>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
       <div class="">
