@@ -20,7 +20,7 @@
         <div class="col-xs-12 col-sm-4">
           <div class="card">
             <%= link_to barber_path(barber) do %>
-              <%= image_tag 'FMB_Barber_2.jpg', class: 'card img-responsive' %>
+              <%= image_tag barber.photo_url, class: 'card img-responsive' %>
             <% end %>
             <div class="card-category"></div>
             <div class="card-description">
@@ -68,7 +68,7 @@
     </div>
     <div class="card-images col-xs-12 col-sm-6 col-md-4">
       <%= image_tag 'max.jpg', class: 'card-images img-responsive' %>
-      <div class="card-description-images">
+      <div class="card-description-images-3">
         <h2>Perth</h2>
       </div>
     </div>
